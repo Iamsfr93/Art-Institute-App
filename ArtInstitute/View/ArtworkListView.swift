@@ -17,7 +17,10 @@
                 return store.artworks
             }
             return store.artworks.filter {
-                $0.title.localizedCaseInsensitiveContains(searchText)
+                $0.title.localizedCaseInsensitiveContains(searchText) ||
+                                ($0.artist_title ?? "")
+                    .localizedCaseInsensitiveContains(searchText)
+
             }
 
         }
@@ -55,6 +58,11 @@
                     
                     .searchable(text: $searchText)
                     .navigationTitle("Art Institute")
+                    .toolbar{
+                        NavigationLink(destination: AboutView()){
+                            Image(systemName: "info.circle")
+                        }
+                    }
                     .alert(
                         "Error",
                         isPresented: $store.showError)

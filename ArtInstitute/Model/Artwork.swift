@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct Artwork: Identifiable, Codable {
-    /// The unique identifier 
+struct Artwork: Identifiable, Codable{
+    /// The unique identifier
     let id: Int
     let title: String
     let image_id: String?
     let artist_title: String?
+    let thumbnail: Thumbnail?
 }

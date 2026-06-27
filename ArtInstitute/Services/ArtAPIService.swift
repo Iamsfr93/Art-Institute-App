@@ -14,7 +14,7 @@ class ArtAPIService {
 
     func fetchArtworks(completion: @escaping ([Artwork]) -> Void) {
 
-        let urlString = "https://api.artic.edu/api/v1/artworks?fields=id,title,image_id,artist_title&page=1&limit=20"
+        let urlString = "https://api.artic.edu/api/v1/artworks?page=1&limit=20"
         
         
         guard let url = URL(string: urlString) else {
